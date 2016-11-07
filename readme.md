@@ -14,7 +14,7 @@ Module BooksHelper
 end
 ```
 
-```ruby
+```erb
 <p><%= format_price(book) %></p>
 ```
 
