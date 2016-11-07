@@ -24,11 +24,18 @@ Now as you might guess I want to have the same thing in Laravel.
 
 Oh I should have said I have the same thing now with Laravel :)
 
-Here are the steps if you also want it:
-
 Disclaimer: Of course you can create a folder with many files helpers or just one global file helper and autoload it with Composer but I rather prefer to create a class and it's much more clear when testing. So everyone may not like it!
 
+Here are the steps if you also want it:
+
+* Register the package service provider in ```config/app.php``` by adding:
+
+```php
+MercurySeries\Helpers\HelpersServiceProvider::class,
+```
+
 * Create a ```Helpers``` directory in your ```app``` folder.
+
 * Add some classes with your helper methods (PS: All helper methods need to be static)
 
 ```php
@@ -66,12 +73,6 @@ class PagesHelper
 }
 ```
 
-* Register the package service provider in ```config/app.php``` by adding:
-
-```php
-MercurySeries\Helpers\HelpersServiceProvider::class,
-```
-
 * Have fun now as me by using your helper methods
 
 ```php
@@ -85,7 +86,7 @@ You can also call it with:
 ```
 But that is exactly what I want to avoid.
 
-* The folder name and the namespace can be changed via the configuration file. Just publish it and edit it as you want:
+* The folder name and the namespace can be easily changed via the configuration file. Just publish it and edit it as you want:
 
 ```
 php artisan vendor:publish --provider="MercurySeries\Helpers\HelpersServiceProvider"
