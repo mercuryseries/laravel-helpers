@@ -60,7 +60,7 @@ class HelpersServiceProvider extends ServiceProvider
 
         foreach ($methods as $method) {
             $methodHelper = function(...$params) use ($method) {
-                $method->class::{$method->name}(...$params);
+                return $method->class::{$method->name}(...$params);
             };
 
             View::share($method->name, $methodHelper);
