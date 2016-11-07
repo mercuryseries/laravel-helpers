@@ -9,13 +9,24 @@ use Illuminate\Support\ServiceProvider;
 class HelpersServiceProvider extends ServiceProvider
 {
     /**
+     * Indicates if loading of the provider is deferred.
+     *
+     * @var bool
+     */
+    protected $defer = false;
+
+    /**
      * Bootstrap the application services.
      *
      * @return void
      */
     public function boot()
     {
-        $this->loadHelpersFrom(app_path('Helpers'));
+        $this->publishes([
+            __DIR__ . '/../config/helpers.php' => config_path('helpers.php'),
+        ], 'config');
+
+        $this->loadHelpersFrom(config('helpers.helpers_path'));
     }
 
     /**
@@ -25,7 +36,7 @@ class HelpersServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->mergeConfigFrom(__DIR__ . '/../config/helpers.php', 'helpers');
     }
 
     public static function loadHelpersFrom($directory)
@@ -44,8 +55,10 @@ class HelpersServiceProvider extends ServiceProvider
 
     public static function registerMethods($helper)
     {
-        $helperClassName = substr($helper, 0, -4);
-        $reflector = new ReflectionClass('App\\Helpers\\' . $helperClassName);
+        $helperClassFQN = static::buildClassFQN($helper);
+
+        $reflector = new Reflection($helperClassFQN);
+
         $methods = $reflector->getMethods();
 
         foreach ($methods as $method) {
@@ -55,5 +68,11 @@ class HelpersServiceProvider extends ServiceProvider
 
             View::share($method->name, $methodHelper);
         }
+    }
+
+    public static function buildClassFQN($helper)
+    {
+        $helperClassName = substr($helper, 0, -4);
+        return config('helpers.helpers_base_namespace') . $helperClassName;
     }
 }
