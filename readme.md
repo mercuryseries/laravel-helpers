@@ -15,7 +15,7 @@ end
 ```
 
 ```ruby
-<p><%= format_price(book) %>
+<p><%= format_price(book) %></p>
 ```
 
 Pretty cool isn't it?
@@ -29,7 +29,7 @@ Here are the steps if you also want it:
 PS: Of course you can create a folder with many files helpers or just one global file helper and autoload it with Composer but I rather prefer to create a class and it's much more clear when testing. So everyone may not like it!
 
 * Create a ```Helpers``` directory in your ```app``` folder.
-* Add some classes with helpers methods (PS: with the current code all the methods needs to be static, but you can easily change it if you want)
+* Add some classes with your helper methods (PS: All helper methods need to be static)
 
 ```php
 <?php
@@ -66,78 +66,10 @@ class PagesHelper
 }
 ```
 
-* Create a ```HelpersServiceProvider``` and register it in ```config/app.php```
-
-```
-php artisan make:provider HelpersServiceProvider
-```
+* Register the package service provider in ```config/app.php``` by adding:
 
 ```php
-<?php
-
-namespace App\Providers;
-
-use ReflectionClass;
-use View;
-use Illuminate\Support\ServiceProvider;
-
-class HelpersServiceProvider extends ServiceProvider
-{
-    /**
-     * Bootstrap the application services.
-     *
-     * @return void
-     */
-    public function boot()
-    {
-        $this->loadHelpersFrom(app_path('Helpers'));
-    }
-
-    /**
-     * Register the application services.
-     *
-     * @return void
-     */
-    public function register()
-    {
-        //
-    }
-
-    public static function loadHelpersFrom($directory)
-    {
-        $helpers = static::findAllHelpersIn($directory);
-
-        foreach ($helpers as $helper) {
-            static::registerMethods($helper);
-        }
-    }
-
-    public static function findAllHelpersIn($directory)
-    {
-        return array_diff(scandir($directory), array('..', '.'));
-    }
-
-    public static function registerMethods($helper)
-    {
-        $helperClassName = substr($helper, 0, -4);
-        $reflector = new ReflectionClass('App\\Helpers\\' . $helperClassName);
-        $methods = $reflector->getMethods();
-
-        foreach ($methods as $method) {
-            $methodHelper = function(...$params) use ($method) {
-                $method->class::{$method->name}(...$params);
-            };
-
-            View::share($method->name, $methodHelper);
-        }
-    }
-}
-```
-
-In ```config/app.php```, add:
-
-```php
-App\Providers\HelpersServiceProvider::class,
+MercurySeries\Helpers\HelpersServiceProvider::class,
 ```
 
 * Have fun now as me by using your helper methods
@@ -152,5 +84,11 @@ You can also call it with:
 {{ App\Helpers\BooksHelper::formatPrice($book) }}
 ```
 But that is exactly what I want to avoid.
+
+* The folder name and the namespace can be changed via the configuration file. Just publish it and edit it as you want:
+
+```
+php artisan vendor:publish --provider="MercurySeries\Helpers\HelpersServiceProvider"
+```
 
 Cheers!
