@@ -19,7 +19,11 @@ class HelpersServiceProvider extends ServiceProvider
             __DIR__ . '/../config/helpers.php' => config_path('helpers.php'),
         ], 'config');
 
-        $this->loadHelpersFrom(config('helpers.helpers_path'));
+        $helpersDirectory = config('helpers.helpers_path');
+
+        if (file_exists($helpersDirectory) && is_dir($helpersDirectory)) {
+            $this->loadHelpersFrom($helpersDirectory);
+        }
     }
 
     /**
