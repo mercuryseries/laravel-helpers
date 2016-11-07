@@ -1,0 +1,21 @@
+{
+    "name": "mercuryseries/helpers",
+    "description": "Dynamic Method Helpers",
+    "license": "MIT",
+    "keywords": ["laravel", "helpers", "methods"],
+    "authors": [
+        {
+            "name": "Honore Hounwanou",
+            "email": "mercuryseries@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "MercurySeries\\Helpers\\": "src/"
+        }
+    },
+    "minimum-stability": "dev",
+    "require": {
+        "illuminate/support": "^5.3"
+    }
+}
