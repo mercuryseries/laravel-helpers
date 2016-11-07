@@ -69,7 +69,7 @@ class HelpersServiceProvider extends ServiceProvider
 
     public static function buildClassFQN($helper)
     {
-        $helperClassName = substr($helper, 0, -4);
+        $helperClassName = substr($helper, 0, -4); // Remove .php at the end of the file name
         return config('helpers.helpers_base_namespace') . $helperClassName;
     }
 }
