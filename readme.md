@@ -28,21 +28,25 @@ Oh I should have said I have the same thing now with Laravel :)
 
 Here are the steps if you also want it:
 
-* Install the package through Composer
+## Install the package through Composer
 
 ```
 composer require mercuryseries/laravel-helpers
 ```
 
-* Register the package service provider in ```config/app.php``` by adding:
+## Register the package service provider in ```config/app.php``` by adding:
 
 ```php
 MercurySeries\Helpers\HelpersServiceProvider::class,
 ```
 
-* Create a ```Helpers``` directory in your ```app``` folder.
+## Create a ```Helpers``` directory in your ```app``` folder.
 
-* Add some classes with your helper methods (PS: All helper methods need to be static)
+Now you can create a ```Helpers``` directory in your ```app``` folder.
+
+## Add some classes with your helper methods
+
+PS: All helper methods need to be static.
 
 ```php
 <?php
@@ -79,7 +83,7 @@ class PagesHelper
 }
 ```
 
-* Have fun now as me by using your helper methods
+## Have fun now as me by using your helper methods
 
 ```php
 {{ $formatPrice($book) }}
@@ -92,7 +96,9 @@ You can also call it with:
 ```
 But that is exactly what I want to avoid.
 
-* The folder name and the namespace can be easily changed via the configuration file. Just publish it and edit it as you want:
+## More Configuration?
+
+The folder name and the namespace can be easily changed via the configuration file. Just publish it and edit it as you want:
 
 ```
 php artisan vendor:publish --provider="MercurySeries\Helpers\HelpersServiceProvider"
