@@ -24,9 +24,7 @@ Now as you might guess I want to have the same thing in Laravel.
 
 Oh I should have said I have the same thing now with Laravel :)
 
-##Disclaimer
-
-**Of course you can create a folder with many files helpers or just one global file helper and autoload it with Composer but I rather prefer to create a class and it's much more clear when testing. So everyone may not like it!**
+**Disclaimer**: Of course you can create a folder with many files helpers or just one global file helper and autoload it with Composer but I rather prefer to create a class and it's much more clear when testing. So everyone may not like it!
 
 Here are the steps if you also want it:
 
