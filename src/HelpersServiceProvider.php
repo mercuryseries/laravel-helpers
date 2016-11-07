@@ -54,7 +54,7 @@ class HelpersServiceProvider extends ServiceProvider
     {
         $helperClassFQN = static::buildClassFQN($helper);
 
-        $reflector = new Reflection($helperClassFQN);
+        $reflector = new ReflectionClass($helperClassFQN);
 
         $methods = $reflector->getMethods();
 
