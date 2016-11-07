@@ -28,6 +28,12 @@ Oh I should have said I have the same thing now with Laravel :)
 
 Here are the steps if you also want it:
 
+* Install the package through Composer
+
+```
+composer require mercuryseries/laravel-helpers
+```
+
 * Register the package service provider in ```config/app.php``` by adding:
 
 ```php
