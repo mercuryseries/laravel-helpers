@@ -1,3 +1,5 @@
+# Dynamic Method Helpers
+
 Before using Laravel I was a big fan of Ruby on Rails and the feature that I loved the most about Ruby on Rails was the ability to be able to create a helper method (in a module) and being able to call it like a global method.
 
 ```ruby
