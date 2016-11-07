@@ -98,7 +98,7 @@ But that is exactly what I want to avoid.
 
 ## More Configuration?
 
-The folder name and the namespace can be easily changed via the configuration file. Just publish it and edit it as you want:
+The ```Helpers``` folder name and the namespace ```App\Helpers``` can be easily changed via the configuration file. Just publish it and edit it as you want:
 
 ```
 php artisan vendor:publish --provider="MercurySeries\Helpers\HelpersServiceProvider"
