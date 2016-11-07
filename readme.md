@@ -26,7 +26,7 @@ Oh I should have said I have the same thing now with Laravel :)
 
 Here are the steps if you also want it:
 
-PS: Of course you can create a folder with many files helpers or just one global file helper and autoload it with Composer but I rather prefer to create a class and it's much more clear when testing. So everyone may not like it!
+Disclaimer: Of course you can create a folder with many files helpers or just one global file helper and autoload it with Composer but I rather prefer to create a class and it's much more clear when testing. So everyone may not like it!
 
 * Create a ```Helpers``` directory in your ```app``` folder.
 * Add some classes with your helper methods (PS: All helper methods need to be static)
