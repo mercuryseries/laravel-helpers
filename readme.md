@@ -90,11 +90,12 @@ class PagesHelper
 {{ $setActive('home') }}
 ```
 
-You can also call it with (change ```App``` accordingly with your application root namespace):
+You can also call it with:
 ```php
 {{ App\Helpers\BooksHelper::formatPrice($book) }}
 ```
-But that is exactly what I want to avoid.
+
+Don't forget to change ```App``` accordingly to your application's root namespace. But that is exactly what I want to avoid (that long stuff).
 
 ## More Configuration?
 
