@@ -1,5 +1,5 @@
 {
-    "name": "mercuryseries/helpers",
+    "name": "mercuryseries/laravel-helpers",
     "description": "Dynamic Method Helpers",
     "license": "MIT",
     "keywords": ["laravel", "helpers", "methods"],
