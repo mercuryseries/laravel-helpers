@@ -51,6 +51,8 @@ PS: All helper methods need to be static.
 ```php
 <?php
 
+// File: app/Helpers/BooksHelper.php
+
 namespace App\Helpers;
 
 use App\Book;
@@ -71,6 +73,8 @@ class BooksHelper
 
 ```php
 <?php
+
+// File: app/Helpers/PagesHelper.php
 
 namespace App\Helpers;
 
