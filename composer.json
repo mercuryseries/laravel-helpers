@@ -18,5 +18,12 @@
     "require": {
         "php": ">=7.0.0",
         "illuminate/support": "~5.0"
-    }
+    },
+    "extra" : {
+       "laravel" : {
+           "providers" : [
+               "MercurySeries\\Helpers\\HelpersServiceProvider"
+           ]
+       }
+   }
 }
